@@ -7,7 +7,12 @@ const fs = require('fs')
 const path = require('path')
 const PORT = process.env.PORT || 5005
 
-app.use(cors())
+console.log(PORT)
+
+app.use(cors({
+    credentials: true,
+    origin: "http://5.181.108.57:3000"
+}))
 app.use(express.json())
 
 app.ws('/', (ws, req) => {
